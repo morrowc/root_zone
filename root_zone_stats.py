@@ -115,7 +115,7 @@ def parseNS(nsdict):
   print 'IPv6 Total Addresses: %s' % len(ipv6nets)
   print 'IPv6 Unique /48s: %s' % len(ipv6)
   print 'IPv4 Total Addresses: %s' % len(ipv4nets)
-  print 'IPv4 Unique /48s: %s' % len(ipv4)
+  print 'IPv4 Unique /24: %s' % len(ipv4)
 
 
 def main():
@@ -156,8 +156,6 @@ def main():
     resolver.setDaemon(True)
     resolver.start()
 
-  print 'Resolver threads spun up.'
-  print 'Sending hosts into the queue.'
   queries = 0
   for host in nshosts:
     hosts.put('A/%s' % host)
